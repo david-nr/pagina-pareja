@@ -4,7 +4,6 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Inicializar todas las funcionalidades
     initFloatingHearts();
     initNavigation();
     initScrollAnimations();
@@ -12,9 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initSmoothScroll();
 });
 
-/* ============================================
-   CORAZONES FLOTANTES
-   ============================================ */
 function initFloatingHearts() {
     const container = document.getElementById('floatingHearts');
     const hearts = ['💕', '💗', '💖', '💝', '❤️', '💘', '💓'];
@@ -30,44 +26,31 @@ function initFloatingHearts() {
 
         container.appendChild(heart);
 
-        // Remover después de la animación
         setTimeout(() => {
             heart.remove();
         }, 20000);
     }
 
-    // Crear corazones iniciales
     for (let i = 0; i < 10; i++) {
         setTimeout(createHeart, i * 500);
     }
-
-    // Crear nuevos corazones periódicamente
     setInterval(createHeart, 3000);
 }
 
-/* ============================================
-   NAVEGACIÓN
-   ============================================ */
 function initNavigation() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-menu a');
-
-    // Toggle menú móvil
     navToggle.addEventListener('click', function () {
         navToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
-
-    // Cerrar menú al hacer clic en un enlace
     navLinks.forEach(link => {
         link.addEventListener('click', function () {
             navToggle.classList.remove('active');
             navMenu.classList.remove('active');
         });
     });
-
-    // Cambiar estilo del nav al hacer scroll
     window.addEventListener('scroll', function () {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 100) {
@@ -80,11 +63,7 @@ function initNavigation() {
     });
 }
 
-/* ============================================
-   ANIMACIONES AL HACER SCROLL
-   ============================================ */
 function initScrollAnimations() {
-    // Agregar clase animate-on-scroll a elementos
     const animatedElements = document.querySelectorAll(
         '.historia-card, .timeline-item, .gallery-item, .reason-card, .letter-card'
     );
@@ -93,16 +72,12 @@ function initScrollAnimations() {
         el.classList.add('animate-on-scroll');
     });
 
-    // Observer para detectar cuando entran en viewport
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                // Agregar delay escalonado para efecto cascada
                 setTimeout(() => {
                     entry.target.classList.add('visible');
                 }, index * 100);
-
-                // Dejar de observar una vez animado
                 observer.unobserve(entry.target);
             }
         });
@@ -114,9 +89,6 @@ function initScrollAnimations() {
     animatedElements.forEach(el => observer.observe(el));
 }
 
-/* ============================================
-   GALERÍA LIGHTBOX
-   ============================================ */
 function initGalleryLightbox() {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
@@ -128,7 +100,6 @@ function initGalleryLightbox() {
     let currentIndex = 0;
     const images = [];
 
-    // Recopilar todas las imágenes
     galleryItems.forEach((item, index) => {
         const img = item.querySelector('img');
         images.push(img.src);
@@ -160,19 +131,15 @@ function initGalleryLightbox() {
         lightboxImg.src = images[currentIndex];
     }
 
-    // Event listeners
     closeBtn.addEventListener('click', closeLightbox);
     prevBtn.addEventListener('click', showPrev);
     nextBtn.addEventListener('click', showNext);
-
-    // Cerrar con click fuera de la imagen
     lightbox.addEventListener('click', function (e) {
         if (e.target === lightbox) {
             closeLightbox();
         }
     });
 
-    // Navegación con teclado
     document.addEventListener('keydown', function (e) {
         if (!lightbox.classList.contains('active')) return;
 
@@ -182,9 +149,6 @@ function initGalleryLightbox() {
     });
 }
 
-/* ============================================
-   SMOOTH SCROLL
-   ============================================ */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -206,8 +170,7 @@ function initSmoothScroll() {
 }
 
 /* ============================================
-   CONTADOR DE DÍAS JUNTOS (OPCIONAL)
-   Si quieres activarlo, descomenta y modifica
+   CONTADOR DE DÍAS JUNTOS
    ============================================ */
 /*
 function initDaysCounter() {

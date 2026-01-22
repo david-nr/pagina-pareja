@@ -1,40 +1,25 @@
-/* ============================================
-   VARIABLES Y CONFIGURACIÓN GLOBAL
-   ============================================ */
 :root {
-    /* Colores principales - EDITABLE */
     --color-primary: #1E3A5F;
-    /* Azul oscuro */
     --color-secondary: #FFB6C1;
-    /* Rosa suave */
     --color-accent: #87CEEB;
-    /* Azul claro */
     --color-white: #FFFFFF;
     --color-bg-alt: #FFF0F5;
-    /* Rosa muy pálido */
     --color-text: #333333;
     --color-text-light: #666666;
 
-    /* Gradientes */
     --gradient-romantic: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
     --gradient-hero: linear-gradient(135deg, #1E3A5F 0%, #2E5A8F 50%, #87CEEB 100%);
 
-    /* Tipografía */
     --font-display: 'Dancing Script', cursive;
     --font-body: 'Poppins', sans-serif;
 
-    /* Espaciado */
     --section-padding: 100px;
     --container-width: 1200px;
 
-    /* Transiciones */
     --transition-smooth: all 0.3s ease;
     --transition-slow: all 0.5s ease;
 }
 
-/* ============================================
-   RESET Y BASE
-   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -70,9 +55,6 @@ a {
     color: inherit;
 }
 
-/* ============================================
-   CORAZONES FLOTANTES
-   ============================================ */
 .floating-hearts {
     position: fixed;
     top: 0;
@@ -111,9 +93,6 @@ a {
     }
 }
 
-/* ============================================
-   NAVEGACIÓN
-   ============================================ */
 .navbar {
     position: fixed;
     top: 0;
@@ -192,9 +171,6 @@ a {
     transition: var(--transition-smooth);
 }
 
-/* ============================================
-   HERO SECTION
-   ============================================ */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -375,9 +351,6 @@ a {
     }
 }
 
-/* ============================================
-   SECCIONES GENERALES
-   ============================================ */
 .section {
     padding: var(--section-padding) 0;
     position: relative;
@@ -391,7 +364,6 @@ a {
     margin-bottom: 60px;
 }
 
-/* Animación de aparición */
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(50px);
@@ -403,9 +375,6 @@ a {
     transform: translateY(0);
 }
 
-/* ============================================
-   SECCIÓN HISTORIA
-   ============================================ */
 .historia {
     background: var(--color-bg-alt);
 }
@@ -448,9 +417,6 @@ a {
     color: var(--color-primary);
 }
 
-/* ============================================
-   SECCIÓN MOMENTOS (TIMELINE)
-   ============================================ */
 .momentos {
     background: var(--color-white);
 }
@@ -545,9 +511,6 @@ a {
     color: var(--color-text-light);
 }
 
-/* ============================================
-   SECCIÓN GALERÍA
-   ============================================ */
 .galeria {
     background: var(--color-bg-alt);
 }
@@ -609,7 +572,6 @@ a {
     opacity: 1;
 }
 
-/* Lightbox */
 .lightbox {
     position: fixed;
     top: 0;
@@ -680,9 +642,6 @@ a {
     transform: translateY(-50%) scale(1.1);
 }
 
-/* ============================================
-   SECCIÓN RAZONES
-   ============================================ */
 .razones {
     background: var(--color-white);
 }
@@ -739,9 +698,6 @@ a {
     line-height: 1.6;
 }
 
-/* ============================================
-   SECCIÓN DEDICATORIA
-   ============================================ */
 .dedicatoria {
     background: var(--gradient-hero);
     padding: 120px 0;
@@ -802,9 +758,6 @@ a {
     color: var(--color-primary);
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
 .footer {
     background: var(--color-primary);
     color: var(--color-white);
@@ -822,11 +775,6 @@ a {
     font-size: 20px;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-
-/* Tablet */
 @media (max-width: 1024px) {
     :root {
         --section-padding: 80px;
@@ -849,13 +797,11 @@ a {
     }
 }
 
-/* Móvil */
 @media (max-width: 768px) {
     :root {
         --section-padding: 60px;
     }
 
-    /* Navegación móvil */
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -893,7 +839,6 @@ a {
         transform: rotate(-45deg) translate(7px, -6px);
     }
 
-    /* Hero móvil */
     .hero-title .name {
         display: block;
     }
@@ -902,7 +847,6 @@ a {
         margin: 10px 0;
     }
 
-    /* Timeline móvil */
     .timeline::before {
         left: 20px;
     }
@@ -920,7 +864,6 @@ a {
         right: auto !important;
     }
 
-    /* Grid móvil */
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -930,7 +873,6 @@ a {
         grid-template-columns: 1fr;
     }
 
-    /* Carta móvil */
     .letter-card {
         transform: none;
         margin: 0 10px;
@@ -940,7 +882,6 @@ a {
         padding: 30px;
     }
 
-    /* Lightbox móvil */
     .lightbox-prev,
     .lightbox-next {
         font-size: 30px;
@@ -955,7 +896,6 @@ a {
     }
 }
 
-/* Móvil pequeño */
 @media (max-width: 480px) {
     .hero-subtitle {
         font-size: 18px;
